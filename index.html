@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access To Securitize ID</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.securitize.io/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- Web3Modal: Utility Packages to manage Wallets-->
+<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+<script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+<script type="text/javascript"
+    src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+
+
+<!-- Helper functions to manage the Wallet with Metamask and Webm3odal -->
+<script type="text/javascript" src="webModalUtility.js"></script>
+
+<!-- Utility Package to manage Transactions-->
+<script
+    src="https://cdn.jsdelivr.net/gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
+
+<!-- The Smart Contract ABI-->
+<script src="RegistryABI.js"></script>
+
+<!-- Functions to access Securitize-iD & Transaction APIs -->
+<script src="helperFuncions.js"></script>
+
+<script>
+
+    ////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
+    //                                                                            //
+    //                          =============                                     //
+    //                          MAIN FUNCTION                                     //
+    //                          =============                                     //
+    //                                                                            //
+    ////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
+    window.addEventListener('load', async () => {
+        // RC (Tulip)
+        // These are the variables Securitize has to provide
+        const baseUrl = "https://id.rc.securitize.io/";
+        const API_BASE_URL = "https://connect-gw.securitize.io/api/";
+        const issuerID = "Provided by Securitize";
+        const secret = "Provided by Securitize";
+        const redirecturl = "Where the front end Application is hosted"
+        const contractAddress = "Provided by Securitize"; // Contract Address 
+
+        const AUTHORIZATION_URL = API_BASE_URL + 'auth/v1/authorize';
+        const ATTESTATION_URL = API_BASE_URL + 'bc/v1/partners/' + issuerID + '/attestation';
+        const TRANSACTION_URL = API_BASE_URL + 'bc/v1/defi-transactions/partners/' + issuerID;
+
+        showSecuritizeIDLogInLogo(baseUrl, issuerID, redirecturl); // Showing SecuritizeID logo in the web page
+        var code = captureTOKEN(); // Parse the Token from the URL
+
+        initWallet(); // Initalize the Wallet
+        fetchAccountData(); // Fetch account data of the Wallet
+
+        if (code != null) { // If the Token is not NULL => The user signed-in in SecuritizeID
+            showInfo("User Logged in SecuritizeID");
+            // Getting the Access Token to use Securitize APIs and access User information
+            response = await requestAccessToken(AUTHORIZATION_URL, code, secret, issuerID);
+            console.log(response)
+
+            if (response["response"] == "OK") {
+                attestationFrontEnd(ATTESTATION_URL, response["accessToken"]);
+                connectWalletFrontEnd(TRANSACTION_URL, response["accessToken"], contractAddress);
+            } else {
+                showInfo("We didn't get the accessToken <br> Reloading site", "error");
+                window.location.replace(redirecturl);
+            }
+            if (response["response"] == "CORS_PROBLEM") {
+                showInfo("<p>Probably a CORS problem when trying to access Gateway APIs <br> <br>Solve your server setup</p>", "error"); // Show the information on the web page
+            }
+        }
+    });
+</script>
+
+
+<body>
+    <div class="container" id="SecuritizeID">
+        <h1> Demo of how to access Securitize ID & OnChain Registry </h1>
+    </div>
+    <p></p>
+    <div class="container" id="info"></div>
+</body>
+
+</html>
