@@ -108,6 +108,19 @@ In order to be able to access Securitize APIs, a set of information and variable
 </table>
 
 
+Take into account to change these paramenters in the index.html file:
+
+```js
+
+        const baseUrl = "https://id.rc.securitize.io/";
+        const API_BASE_URL = "https://connect-gw.securitize.io/api/";
+        const issuerID = "Provided by Securitize";
+        const secret = "Provided by Securitize";
+        const redirecturl = "Where the front end Application is hosted"
+        const contractAddress = "Provided by Securitize"; // Contract Address 
+```
+
+
 
 ## 
 
