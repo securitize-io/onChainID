@@ -129,7 +129,7 @@ Take into account to change these paramenters in the index.html file:
 
 In order to access Securitize ID APIs a simple OAuth process takes place, as shown in the figure below:
 
-![alt_text] https://lh5.googleusercontent.com/wKGb1mV9qte9wvkRSegEoEX5gKGXu_tLHnMDiUwNwcQqGyO0VKXoioCNOJU8r-1RwDFWBfbYsvk-lust6wiUr6Ts2P1HGQGf3nbZumXYxSWfn6GotGJTjJq-kzMnMlDoHN4hpQR8 "image_tooltip")
+![alt_text](https://lh5.googleusercontent.com/r9V8TxmNJVbA3QX8fuRzaksoOoSj1pqb90OZkfbI_GBaQnI34MEzfPxkekxaGmqaaOpQESwpdEDYXqNKSQz0Q8IBdfRZSD4u5NhhJ97p6J40EJHdZEcXKRswSTvS36-f7_qcIQe7 "image_tooltip")
 
 
 
