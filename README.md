@@ -1,7 +1,5 @@
 
-
 # Securitize-iD Integration Tutorial
-
 
 ## Summary
 
@@ -134,7 +132,7 @@ In order to access Securitize ID APIs a simple OAuth process takes place, as sho
 The partner will need to whitelist the URL the user will be redirected to in Securitize. In order to do so, the following script in python can be used.
 
 
-```
+```python
 # Import the required libraries
 import requests
 from requests_oauthlib import OAuth1
@@ -165,7 +163,7 @@ else:
 Or using the following CURL:
 
 
-```
+```shell
 curl -X PATCH "https://sec-id-api.securitize.io/v1/{domainID}" -H "accept: application/json" -H "Authorization: {secret}" -H "Content-Type: application/json" -d "{body}"
 ```
 
@@ -216,7 +214,7 @@ The partner can integrate the Securitize iD button within his own UI. The Partne
 For instance, the partner could use the following code to include in his landing page, which basically creates a button and, once clicked, re-directs the user to Securitize-iD authorization site:
 
 
-```
+```js
    function showSecuritizeIDLogInLogo(baseUrl, issuerID, redirecturl) {
        var scope = "info";
        var securitizeID = document.getElementById("SecuritizeID");
@@ -237,9 +235,7 @@ For instance, the partner could use the following code to include in his landing
 
 #### Capture the Token
 
-
 ![alt_text](https://lh5.googleusercontent.com/wKGb1mV9qte9wvkRSegEoEX5gKGXu_tLHnMDiUwNwcQqGyO0VKXoioCNOJU8r-1RwDFWBfbYsvk-lust6wiUr6Ts2P1HGQGf3nbZumXYxSWfn6GotGJTjJq-kzMnMlDoHN4hpQR8 "image_tooltip")
-
 
 Once the user has singed–in (or up) in Securitize-ID, he will be redirected back the the partners site. The URL of the redirection will look like this:
 
@@ -252,7 +248,7 @@ https://{Redirectul}?code={code}&authorized=true
 Hence, the partner will have to capture the information in the parameters of the URL. This can be simply done with the following JavaScript function:
 
 
-```
+```js
    function captureTOKEN() {
        const queryString = window.location.search;
        const urlParams = new URLSearchParams(queryString);
@@ -283,7 +279,7 @@ In any case, this is not affecting the way the partner is interacting with the u
 The partner will need to request Securitize API GW a JSON Access token to be able to interact with the rest of the APIs through a simple request:
 
 
-```
+```shell
 curl --location --request POST 'https:{API_BASE_URL}/api/auth/v1/authorize' \
 --header 'Authorization: Bearer {code}' \
 --header 'Content-Type: application/json' \
@@ -345,7 +341,7 @@ Where:
 The following JavaScript function will request, and return, the access Token to be later used to access Securitize APIs:
 
 
-```
+```js
    function requestAccessToken(Url, code, secret, clientId) {
        var xhr = new XMLHttpRequest();
        var responseString = null;
@@ -402,7 +398,7 @@ After the user has signed in into Securitize-iD, the partner will have to provid
 In order to register the user’s wallet into the BlockChain registry, Securitze has developed the infrastructure to simplify the process as much as possible.Therefore, by hitting the following endpoint
 
 
-```
+```shell
 curl 'https://connect-gw.securitize.io/api/bc/v1/partners/{issuerID}/attestation' \
   -H 'access-token: {accessToken}' \
   -H 'Content-Type: application/json' 
@@ -468,7 +464,7 @@ The Partner will receive a prepared meta-transaction which can be signed by the 
 A simple JavaScript snippet to call the API and use Web3 to trigger Metamask on the user’s browser to sign the transaction could look like this:
 
 
-```
+```js
 var transaction = await requestTransaction(Url, accessToken);    
 console.log("The transaction: ", transaction["preparedTransaction"]);
 
@@ -502,11 +498,7 @@ console.log("The transaction: ", transaction["preparedTransaction"]);
 The deployed Registry Smart Contract has a set of methods the partner can interact with:
 
 
-
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image7.png "image_tooltip")
+![alt_text](https://lh4.googleusercontent.com/Cc2HFdIJqGc6MbTi8J9BUJsB4KPQ9rrIeROjP_9T6dztbbv412XX1hYaptYYJYLh_qnLlCirSCg4C65fNqdk0iYl_hT-XLDeGoPkGTo_PqGdwn0WufAG9sML2jYfReK5GsWSyR83 "image_tooltip")
 
 
 In order to interact with the methods using Web3 in the browser, these simple calls can be used:
@@ -515,7 +507,7 @@ In order to interact with the methods using Web3 in the browser, these simple ca
 ### Retrieve number of total registered Wallets
 
 
-```
+```js
  const totalWallets = await theContract.methods.getTotalWallets().call();
 ```
 
@@ -524,7 +516,7 @@ In order to interact with the methods using Web3 in the browser, these simple ca
 ### Checking if a Wallet has been Whitelisted
 
 
-```
+```js
 const isWhitelisted = await theContract.methods.isWhitelisted(selectedAccount).call();
 ```
 
@@ -533,8 +525,8 @@ const isWhitelisted = await theContract.methods.isWhitelisted(selectedAccount).c
 ### Removing a Wallet from the Whitelist
 
 
-```
-await theContract.methods.removeWallet(selectedAccount).send({ from: selectedAccount },              function (err, res) {
+```js
+await theContract.methods.removeWallet(selectedAccount).send({ from: selectedAccount }, function (err, res) {
                if (err) {
                    showInfo("An error occured" + err, "error");
                    return
