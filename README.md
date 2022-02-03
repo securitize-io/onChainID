@@ -129,7 +129,7 @@ Take into account to change these paramenters in the index.html file:
 
 In order to access Securitize ID APIs a simple OAuth process takes place, as shown in the figure below:
 
-![alt_text](https://lh5.googleusercontent.com/r9V8TxmNJVbA3QX8fuRzaksoOoSj1pqb90OZkfbI_GBaQnI34MEzfPxkekxaGmqaaOpQESwpdEDYXqNKSQz0Q8IBdfRZSD4u5NhhJ97p6J40EJHdZEcXKRswSTvS36-f7_qcIQe7 "image_tooltip")
+![alt_text](https://lh4.googleusercontent.com/nPhioZ3qtjuDXiqwltTKOhCf099mcLoQb6DG0D2cRYc4QsNW0kBUTN06ohuhEaiqmW9BQSO--iwwP_o-FQBtSBJyKlc2dl3nXvjCgq8yVuuMqPsU-UF41ygZxQM4IOmHR6q86a0d "image_tooltip")
 
 
 
@@ -253,7 +253,7 @@ For instance, the partner could use the following code to include in his landing
 
 #### Capture the Token
 
-![alt_text](https://lh5.googleusercontent.com/wKGb1mV9qte9wvkRSegEoEX5gKGXu_tLHnMDiUwNwcQqGyO0VKXoioCNOJU8r-1RwDFWBfbYsvk-lust6wiUr6Ts2P1HGQGf3nbZumXYxSWfn6GotGJTjJq-kzMnMlDoHN4hpQR8 "image_tooltip")
+![alt_text](https://lh5.googleusercontent.com/r9V8TxmNJVbA3QX8fuRzaksoOoSj1pqb90OZkfbI_GBaQnI34MEzfPxkekxaGmqaaOpQESwpdEDYXqNKSQz0Q8IBdfRZSD4u5NhhJ97p6J40EJHdZEcXKRswSTvS36-f7_qcIQe7 "image_tooltip")
 
 Once the user has singed–in (or up) in Securitize-ID, he will be redirected back the the partners site. The URL of the redirection will look like this:
 
@@ -291,7 +291,7 @@ In any case, this is not affecting the way the partner is interacting with the u
 #### Request JSON Access Token
 
 
-![alt_text](https://lh5.googleusercontent.com/wKGb1mV9qte9wvkRSegEoEX5gKGXu_tLHnMDiUwNwcQqGyO0VKXoioCNOJU8r-1RwDFWBfbYsvk-lust6wiUr6Ts2P1HGQGf3nbZumXYxSWfn6GotGJTjJq-kzMnMlDoHN4hpQR8 "image_tooltip")
+![alt_text](https://lh5.googleusercontent.com/Q4ZKF5TZi_3ZFBePMtBbUp-iZAP5qH5WeabmoJKClzxVeucI2D4aGuSfiKJWExF30mRlZN4tM5NB3X3CTMPYqLG5ABaochmSe7qH4jhsY6yh5FMfPmXhEjTGMT0jOo5T2_V-2d7W "image_tooltip")
 
 
 The partner will need to request Securitize API GW a JSON Access token to be able to interact with the rest of the APIs through a simple request:
@@ -398,7 +398,7 @@ The following JavaScript function will request, and return, the access Token to 
 
 ## Connect Wallet
 
-![alt_text](https://lh5.googleusercontent.com/CRfIKW-Luzp3_MP-bqKEV8UXjKaozSn037QIE1-jsB1L7E1FLFHnniCrx-x8eVYfn5m94lrYEwi9Aly6JtdpO9BdJJhdIikRnHIjPogdzMKQC6GNWnZmV9eGTJL_MQsey_NxHjTT "image_tooltip")
+![alt_text](https://lh4.googleusercontent.com/3kqzZofm2iBKaIW8IkU6Q82TH3mO1NdnzX9gQXdaXaSjAhe4-i7r64DG2E4F_23RN5EMWheSR-zMePh3kErje9ux2ZqsE1ixBx52XLnJebgPtzSJaSZNQSJ4ft6d4J-_7Ez9ISb3 "image_tooltip")
 
 
 After the user has signed in into Securitize-iD, the partner will have to provide all the functionality to enable the user’s Crypto-Wallet connection. There are multiple ways of doing this, as well as packages and libraries to deal with the details. In this tutorial, and the code provided, we have used  [Web3Modal](https://github.com/Web3Modal/web3modal), which provides all the basic functionality to connect to a wallet and retrieve the user’s wallet public address.
@@ -407,7 +407,7 @@ After the user has signed in into Securitize-iD, the partner will have to provid
 ## Registering a Wallet into the BlockChain
 
 
-![alt_text](https://lh3.googleusercontent.com/128y8KjU6oMoG4inDWAqCXGQXYlvPEVRK541xh25bY9sRL4z4pQJsiDnhmIOf-26bIwSCLa8UcciBivo4zGVabks2Mx_faIqt-N8bekFv3YVqTo-zMwjhqblLkFawoQG2cqbb24V "image_tooltip")
+![alt_text](https://lh5.googleusercontent.com/pP0Xf_jdrfN3hvjrMfV5JMafbDI-W7BeWs2XzOU7katCGa4PGDUTcdxP2ROlhz38kCr3wSISlUBLUnhKuwtAMXJzPdr0sDr6tMt0fnLYtYZPmnJxiltbTKA5pHpGcNqj6pmJxbh6 "image_tooltip")
 
 
 In order to register the user’s wallet into the BlockChain registry, Securitze has developed the infrastructure to simplify the process as much as possible.Therefore, by hitting the following endpoint
