@@ -46,14 +46,10 @@ In order to be able to access Securitize APIs, a set of information and variable
 
 <li><a href="https://id.securitize.io/">https://id.securitize.io/</a>
     (Production)
-<ul>
+</li>
 
 <li><a href="https://id.sandbox.securitize.io/">https://id.sandbox.securitize.io/</a>
-<p>
-
     (Sandbox)
-</li>
-</ul>
 </li>
 </ul>
    </td>
@@ -69,15 +65,10 @@ In order to be able to access Securitize APIs, a set of information and variable
 <ul>
 
 <li><a href="https://connect-gw.sandbox.securitize.io/api/">https://connect-gw.securitize.io/api/</a>
-    (Production)
-<ul>
+    (Production)</li>
 
 <li><a href="https://connect-gw.sandbox.securitize.io/">https://connect-gw.sandbox.securitize.io/</a> 
-<p>
-
     (Sandbox)
-</li>
-</ul>
 </li>
 </ul>
    </td>
@@ -279,9 +270,6 @@ Hence, the partner will have to capture the information in the parameters of the
 #### User has no Securitize-iD
 
 In case the user has not registered in Securitize-iD before, he will have to sign-up and follow the 5 KYC steps in order to be KYCed by Securitize.
-
-
-![alt_text](https://docs.google.com/drawings/d/svoLDyPix3ncLkt6aHnfWtQ/image?parent=e/2PACX-1vRMFmQP4l8kIeVqMtBe1ybskO04LYV94n9pxr3ETWvTZycDqP3hEFNUw4pNP9MYfY1yWrWrQD9DGDAB&rev=48&drawingRevisionAccessToken=ZCscPkqWQn6JjQ&h=152&w=624&ac=1 "image_tooltip")
 
 In any case, this is not affecting the way the partner is interacting with the user. By the end of the process, the user will be redirected to the partner’s site exactly in the same way as he had already a verified Securitize-iD. However, in this case, the partner will have to check that the user has been KYCed by Securitize to access the rest of the APIs.
 
