@@ -183,7 +183,6 @@ curl -X PATCH "https://sec-id-api.securitize.io/v1/{domainID}" -H "accept: appli
 
 Where:
 
-
 <table>
   <tr>
    <td><strong>Parameter</strong>
@@ -206,12 +205,18 @@ Where:
   <tr>
    <td><strong>body</strong>
    </td>
-   <td><code>{ \
-"appIcon": "Icon url", \
-"appName": "The Name of your App or [yourdomain]", \
-"redirectUrls": [ \
-"https://[yourdomain]/*" \
-}</code>
+   <td>
+     
+ ```json 
+{ 
+"appIcon": "Icon url", 
+"appName": "The Name of your App or [yourdomain]", 
+"redirectUrls": [ 
+"https://[yourdomain]/*" ]
+}
+     
+```
+     
    </td>
   </tr>
 </table>
@@ -342,9 +347,6 @@ Where:
    <td><strong>{code}</strong>
    </td>
    <td>The {code} returned in the 
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "redirect URL"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
 <a href="#heading=h.qs15291tus3t">redirect URL</a>
    </td>
   </tr>
@@ -438,9 +440,6 @@ Where:
    <td><strong>{accessToken}</strong>
    </td>
    <td>Is the {accessToken} returned by the 
-
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: undefined internal link (link text: "request JSON Access Token API"). Did you generate a TOC? </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
 <a href="#heading=h.4vfsiwcezjan">request JSON Access Token API</a> 
    </td>
   </tr>
