@@ -496,7 +496,14 @@ Where:
   </tr>
 </table>
 
-The Partner will receive a prepared meta-transaction which can be signed by the user, using his, e.g., metamask wallet, to sign the transaction and store his wallet in the BlockChain Registry contract.
+The Partner will receive a prepared meta-transaction which can be signed by the user, using his, e.g., metamask wallet, to sign the transaction and store his wallet in the BlockChain Registry contract, like this:
+
+```js
+{
+    "preparedTransaction": "0xf9014a80843b9aca00835b8d8094b8d7d897bdce6f6454b54e808461b337058cdb0b80b901246e5832f2000000000000000000000000000000000000000000000000000000000000001b67d0a755ff7a6ccfab413c71ee5fac8a3d11c3a699dc2381b0bb0f9c077ccd471d1c3cc8fcd31936f63b67f66285b42f5c3233f7cafb75efe12309bf94d6bf5f00000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000005b8d8000000000000000000000000000000000000000000000000000000000000000440a2a9a01000000000000000000000000bf244e70c66b0a70d071cd0374e6b14397f0f55c0000000000000000000000000000000000000000000000000000000000a22b9200000000000000000000000000000000000000000000000000000000808080"
+}
+```
+
 
 A simple JavaScript snippet to call the API and use Web3 to trigger Metamask on the user’s browser to sign the transaction could look like this:
 
