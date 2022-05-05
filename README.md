@@ -470,6 +470,31 @@ The result might contain the following values
   </tr>
 </table>
 
+And with this endpoint: 
+
+```shell
+curl 'https://connect-gw.securitize.io/api/bc/v1/partners/{issuerID}/wallets/{wallet}/whitelist' \
+  -H 'access-token: {accessToken}' \
+  -H 'Content-Type: application/json' 
+```
+
+Where:
+
+
+<table>
+  <tr>
+   <td><strong>Parameter</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>{wallet}</strong>
+   </td>
+   <td>Is the {wallet} address of the user, which will be registered and whitelisted in the Registry smart contract 
+   </td>
+  </tr>
+</table>
 
 The Partner will receive a prepared meta-transaction which can be signed by the user, using his, e.g., metamask wallet, to sign the transaction and store his wallet in the BlockChain Registry contract.
 
