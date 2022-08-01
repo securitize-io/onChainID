@@ -65,7 +65,7 @@ In order to be able to access Securitize APIs, a set of information and variable
 <li><a href="https://connect-gw.sandbox.securitize.io/api/">https://connect-gw.securitize.io/api/</a>
     (Production)</li>
 
-<li><a href="https://connect-gw.sandbox.securitize.io/">https://connect-gw.sandbox.securitize.io/</a> 
+<li><a href="https://connect-gw.sandbox.securitize.io/api/">https://connect-gw.sandbox.securitize.io/api/</a> 
     (Sandbox)
 </li>
 </ul>
@@ -112,8 +112,8 @@ Take into account to change these paramenters in the index.html file:
 
 ```js
 
-        const baseUrl = "https://id.rc.securitize.io/";
-        const API_BASE_URL = "https://connect-gw.securitize.io/api/";
+        const baseUrl = "https://id.sandbox.securitize.io/";
+        const API_BASE_URL = "https://connect-gw.sandbox.securitize.io/api/";
         const issuerID = "Provided by Securitize";
         const secret = "Provided by Securitize";
         const redirecturl = "Where the front end Application is hosted"
@@ -151,9 +151,9 @@ import requests
 from requests_oauthlib import OAuth1
 from requests_oauthlib import OAuth2Session
 import json
-serviceUrl = 'https://sec-id-api.securitize.io/v1/'
+serviceUrl = 'https://sec-id-api.sandbox.securitize.io/v1/'
 Issuer ="{Issuer Name}"
-ClientID="{issuerID}"
+issuerID="{issuerID}"
 Secret ="{secret}"
 
 body = {'appIcon':{url of the icon},
@@ -161,7 +161,7 @@ body = {'appIcon':{url of the icon},
        'redirectUrls':['{redirectUrl}']}
 
 response = requests.patch(
-   serviceUrl + ClientID ,
+   serviceUrl + issuerID ,
    headers={'Authorization': Secret},
    data= body
 )
@@ -177,7 +177,7 @@ Or using the following CURL:
 
 
 ```shell
-curl -X PATCH "https://sec-id-api.securitize.io/v1/{domainID}" -H "accept: application/json" -H "Authorization: {secret}" -H "Content-Type: application/json" -d "{body}"
+curl -X PATCH "https://sec-id-api.sandbox.securitize.io/v1/{issuerID}" -H "accept: application/json" -H "Authorization: {secret}" -H "Content-Type: application/json" -d "{body}"
 ```
 
 
@@ -191,9 +191,9 @@ Where:
    </td>
   </tr>
   <tr>
-   <td><strong>{domainID}</strong>
+   <td><strong>{issuerID}</strong>
    </td>
-   <td>Is the {issuerID} provided by Securitize
+   <td>Is the issuer ID provided by Securitize
    </td>
   </tr>
   <tr>
@@ -259,7 +259,7 @@ Once the user has singed–in (or up) in Securitize-ID, he will be redirected ba
 
 
 ```
-https://{Redirectul}?code={code}&authorized=true
+{Redirecturl}?code={code}&authorized=true
 ```
 
 
@@ -272,6 +272,7 @@ Hence, the partner will have to capture the information in the parameters of the
        const urlParams = new URLSearchParams(queryString);
        const code = urlParams.get("code");
        const authorized = urlParams.get("authorized");
+       const country = urlParams.get("country");
        console.log(code, country, authorized);
        if (code != null) { // User has signed-up and has a SecuritizeID
            return code;
@@ -298,12 +299,12 @@ The partner will need to request Securitize API GW a JSON Access token to be abl
 
 
 ```shell
-curl --location --request POST 'https:{API_BASE_URL}/api/auth/v1/authorize' \
---header 'Authorization: Bearer {code}' \
+curl --location --request POST '{API_BASE_URL}/api/auth/v1/authorize' \
+--header 'Authorization: Bearer {secret}' \
 --header 'Content-Type: application/json' \
 --header 'clientid: {issuerID}' \
 --data-raw '{
-   "code": "{secret}"
+   "code": "{code}"
 }'
 ```
 
@@ -326,7 +327,7 @@ Where:
 
 <li><a href="https://connect-gw.sandbox.securitize.io/api/">https://connect-gw.securitize.io/api/</a> (Production)
 
-<li><a href="https://connect-gw.sandbox.securitize.io/">https://connect-gw.sandbox.securitize.io/</a> (Sandbox)
+<li><a href="https://connect-gw.sandbox.securitize.io/api/">https://connect-gw.sandbox.securitize.io/api/</a> (Sandbox)
 </li>
 </ul>
    </td>
@@ -382,7 +383,7 @@ The following JavaScript function will request, and return, the access Token to 
        xhr.open("POST", Url, false);
        xhr.setRequestHeader("Content-Type", "application/json");
        xhr.setRequestHeader("Authorization", "Bearer " + secret);
-       xhr.setRequestHeader("clientid", clientId);
+       xhr.setRequestHeader("clientid", issuerID);
        try {
            xhr.send(JSON.stringify({ "code": code }));
            return responseString;
@@ -414,7 +415,7 @@ In order to register the user’s wallet into the BlockChain registry, Securitze
 
 
 ```shell
-curl 'https://connect-gw.securitize.io/api/bc/v1/partners/{issuerID}/attestation' \
+curl 'https://connect-gw.sandbox.securitize.io/api/bc/v1/partners/{issuerID}/attestation' \
   -H 'access-token: {accessToken}' \
   -H 'Content-Type: application/json' 
 ```
@@ -473,7 +474,7 @@ The result might contain the following values
 And with this endpoint: 
 
 ```shell
-curl 'https://connect-gw.securitize.io/api/bc/v1/partners/{issuerID}/wallets/{wallet}/whitelist' \
+curl 'https://connect-gw.sandbox.securitize.io/api/bc/v1/partners/{issuerID}/wallets/{wallet}/whitelist' \
   -H 'access-token: {accessToken}' \
   -H 'Content-Type: application/json' 
 ```
