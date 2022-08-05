@@ -516,10 +516,7 @@ console.log("The transaction: ", transaction["preparedTransaction"]);
    const tx = new ethereumjs.Tx(transaction["preparedTransaction"]);
 
    const params = {
-       gas: '0x124F8', // 30400
-       gasPrice: '0x9184e72a000',
-       gasLimit: '0x2710',
-       to: '0xB8D7d897BdCe6f6454b54E808461B337058cDB0B',
+       to: tx.to.toString("hex"),
        value: '0x00',
        data: '0x' + tx.data.toString("hex"),
        from: selectedAccount
