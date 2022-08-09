@@ -562,11 +562,6 @@ The deployed Registry Smart Contract has a set of methods the partner can intera
     function getChainId() public view returns (uint256) {}
 ```
 
-
-
-![alt_text](https://lh4.googleusercontent.com/Cc2HFdIJqGc6MbTi8J9BUJsB4KPQ9rrIeROjP_9T6dztbbv412XX1hYaptYYJYLh_qnLlCirSCg4C65fNqdk0iYl_hT-XLDeGoPkGTo_PqGdwn0WufAG9sML2jYfReK5GsWSyR83 "image_tooltip")
-
-
 In order to interact with the methods using Web3 in the browser, these simple calls can be used:
 
 
