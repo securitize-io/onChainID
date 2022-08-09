@@ -542,6 +542,27 @@ console.log("The transaction: ", transaction["preparedTransaction"]);
 
 The deployed Registry Smart Contract has a set of methods the partner can interact with:
 
+```js
+    function addOwner(address _newOwner) public onlyOwners {}
+
+    function removeOwner(address _owner) public onlyOwners {}
+
+    function addWalletFromOwner(address _wallet) public onlyOwners {}
+
+    function addWallet(address _wallet, uint256 _blockLimit) public onlyOwners {}
+
+    function removeWalletFromOwner(address _wallet) public onlyOwners {}
+
+    function removeWallet(address _wallet) public {}
+
+    function isWhitelisted(address _wallet) public view returns (bool) {}
+
+    function getTotalWallets() public view returns (uint256) {}
+
+    function getChainId() public view returns (uint256) {}
+```
+
+
 
 ![alt_text](https://lh4.googleusercontent.com/Cc2HFdIJqGc6MbTi8J9BUJsB4KPQ9rrIeROjP_9T6dztbbv412XX1hYaptYYJYLh_qnLlCirSCg4C65fNqdk0iYl_hT-XLDeGoPkGTo_PqGdwn0WufAG9sML2jYfReK5GsWSyR83 "image_tooltip")
 
